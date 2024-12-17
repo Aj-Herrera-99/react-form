@@ -5,7 +5,7 @@ function Form({ formData, handleSubmit, handleInputChange }) {
         <form
             action="#"
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4 max-w-[500px]"
+            className="flex flex-col w-full gap-4 sm:w-1/3"
         >
             <Input
                 type="text"
@@ -28,7 +28,7 @@ function Form({ formData, handleSubmit, handleInputChange }) {
             <Input
                 type="checkbox"
                 name="status"
-                value={formData.checked}
+                checked={formData.status}
                 action={handleInputChange}
                 isRequired={false}
             >
@@ -36,7 +36,7 @@ function Form({ formData, handleSubmit, handleInputChange }) {
             </Input>
             <button
                 type="submit"
-                className="py-2 text-white bg-blue-500 rounded-2xl hover:bg-blue-600"
+                className="max-w-[300px] py-2 text-white bg-blue-500 rounded-2xl hover:bg-blue-600"
             >
                 Invia
             </button>

@@ -12,7 +12,7 @@ function App() {
     const [articles, setArticles] = useState([]);
 
     // actions
-    const handleInputChange =  (e) => {
+    const handleInputChange = (e) => {
         const { type, name, value, checked } = e.target;
         const key = name;
         const val = type == "checkbox" ? checked : value;

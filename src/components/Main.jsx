@@ -9,7 +9,7 @@ function Main({
     handleRemoveClick,
 }) {
     return (
-        <main className="flex justify-around p-5 ">
+        <main className="flex flex-wrap justify-center gap-8 p-5">
             <Form
                 formData={formData}
                 handleSubmit={handleSubmit}

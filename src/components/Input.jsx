@@ -1,4 +1,4 @@
-function Input({ type, name, value, action, isRequired, children }) {
+function Input({ type, name, value, checked, action, isRequired, children }) {
     return (
         <div className="flex flex-col items-start">
             <label htmlFor={name} className="text-xl">
@@ -10,6 +10,7 @@ function Input({ type, name, value, action, isRequired, children }) {
                 id={name}
                 name={name}
                 value={value}
+                checked={checked}
                 onChange={action}
                 required={isRequired}
             />
