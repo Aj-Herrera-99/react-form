@@ -2,23 +2,23 @@ import { useState } from "react";
 
 function App() {
     // states
-    const [formData, setFormData] = useState({ title: "", author: "", status: true });
+    const [formData, setFormData] = useState({
+        title: "",
+        author: "",
+        status: false,
+    });
     const [articles, setArticles] = useState([]);
 
     // actions
-    const handleTitleChange = (e) => {
-        setFormData({ ...formData, title: e.target.value });
-    };
-    const handleAuthorChange = (e) => {
-        setFormData({ ...formData, author: e.target.value });
-    };
-    const handleStatusChange = (e) => {
-        setFormData({ ...formData, status: e.target.checked });
+    const handleInputChange = (e) => {
+        const {type, name, value, checked} = e.target;
+        const key = name;
+        const val = type == "checkbox" ? checked : value;
+        setFormData({ ...formData, [key]: val });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Test");
         setArticles([...articles, formData]);
         setFormData({ title: "", author: "", status: false });
     };
@@ -53,7 +53,7 @@ function App() {
                             id="title"
                             name="title"
                             value={formData.title}
-                            onChange={handleTitleChange}
+                            onChange={handleInputChange}
                             required
                         />
                     </div>
@@ -67,7 +67,7 @@ function App() {
                             id="author"
                             name="author"
                             value={formData.author}
-                            onChange={handleAuthorChange}
+                            onChange={handleInputChange}
                             required
                         />
                     </div>
@@ -81,7 +81,7 @@ function App() {
                             id="status"
                             name="status"
                             checked={formData.status}
-                            onChange={handleStatusChange}
+                            onChange={handleInputChange}
                         />
                     </div>
                     <button
