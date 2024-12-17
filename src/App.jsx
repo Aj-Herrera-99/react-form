@@ -37,7 +37,7 @@ function App() {
                 <h1 className="text-4xl">React Blog Form</h1>
             </header>
 
-            <main className="p-5 bg-green-300">
+            <main className="flex justify-around p-5 bg-green-300">
                 <form
                     action="#"
                     onSubmit={handleSubmit}
@@ -91,6 +91,7 @@ function App() {
                         Invia
                     </button>
                 </form>
+                
                 <ul className="flex flex-col w-1/2 gap-2 my-4 ">
                     {articles.map((article, index) => (
                         <li
