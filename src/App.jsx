@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function App() {
     // states
-    const [formData, setFormData] = useState({ title: "", author: "" });
+    const [formData, setFormData] = useState({ title: "", author: "", status: true });
     const [articles, setArticles] = useState([]);
 
     // actions
@@ -12,12 +12,15 @@ function App() {
     const handleAuthorChange = (e) => {
         setFormData({ ...formData, author: e.target.value });
     };
+    const handleStatusChange = (e) => {
+        setFormData({ ...formData, status: e.target.checked });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Test");
         setArticles([...articles, formData]);
-        setFormData({ title: "", author: "" });
+        setFormData({ title: "", author: "", status: false });
     };
 
     const handleRemoveClick = (e) => {
@@ -68,6 +71,19 @@ function App() {
                             required
                         />
                     </div>
+                    <div className="flex items-center gap-3">
+                        <label htmlFor="status" className="text-xl">
+                            Articolo pubblicato?
+                        </label>
+                        <input
+                            className="p-1 border-2 border-blue-600 rounded-md bg-stone-200"
+                            type="checkbox"
+                            id="status"
+                            name="status"
+                            checked={formData.status}
+                            onChange={handleStatusChange}
+                        />
+                    </div>
                     <button
                         type="submit"
                         className="py-2 text-white bg-blue-500 rounded-2xl hover:bg-blue-600"
@@ -84,12 +100,22 @@ function App() {
                         >
                             <div className="flex flex-col">
                                 <span>
-                                    <span className="font-semibold">Titolo: </span>
+                                    <span className="font-semibold">
+                                        Titolo:{" "}
+                                    </span>
                                     {article.title}
                                 </span>
                                 <span>
-                                    <span className="font-semibold">Autore: </span>
+                                    <span className="font-semibold">
+                                        Autore:{" "}
+                                    </span>
                                     {article.author}
+                                </span>
+                                <span>
+                                    <span className="font-semibold">
+                                        Stato:{" "}
+                                    </span>
+                                    {article.status ? "pubblicato" : "bozza"}
                                 </span>
                             </div>
                             <div
