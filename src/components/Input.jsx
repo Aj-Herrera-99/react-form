@@ -1,11 +1,11 @@
-function Input({type, name, value, action, isRequired, children}) {
+function Input({ type, name, value, action, isRequired, children }) {
     return (
         <div className="flex flex-col items-start">
             <label htmlFor={name} className="text-xl">
                 {children}
             </label>
             <input
-                className="p-1 border-2 border-blue-600 rounded-md bg-stone-200"
+                className="px-2 py-1 border-2 border-blue-600 rounded-md caret-blue-500 bg-stone-100 "
                 type={type}
                 id={name}
                 name={name}

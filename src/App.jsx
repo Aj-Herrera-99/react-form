@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Main from "./components/Main";
+import Header from "./components/Header";
 
 function App() {
     // states
@@ -35,9 +36,7 @@ function App() {
 
     return (
         <>
-            <header className="p-5 bg-red-300 ">
-                <h1 className="text-4xl">React Blog Form</h1>
-            </header>
+            <Header>React Blog Form</Header>
 
             <Main
                 formData={formData}
